@@ -1,4 +1,4 @@
-<p align="center"><image src="https://raw.githubusercontent.com/vizor-ui/vizor/master/vizor-logo.png" width="300px"/></p>
+<p align="center"><image src="https://raw.githubusercontent.com/vizor-ui/vizor/master/vizor-logo.png" width="200px"/></p>
 
 # vizor
 
