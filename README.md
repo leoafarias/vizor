@@ -6,7 +6,7 @@ A Sci-Fi/Cyberpunk UI Kit for Flutter.
 
 ## Demo & Inspiration
 
-<p> <a href="https://youtu.be/MAFTLxvyIPQ"><image src="https://raw.githubusercontent.com/leoafarias/optr/master/video.png" width="300px"/></a></p>
+<p> <a href="https://youtu.be/MAFTLxvyIPQ"><image src="https://img.youtube.com/vi/MAFTLxvyIPQ/maxresdefault.jpg"/></a></p>
 
 ## Motivation
 
