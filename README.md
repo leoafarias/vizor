@@ -6,7 +6,7 @@ A Sci-Fi/Cyberpunk UI Kit for Flutter.
 
 ## Demo & Inspiration
 
-<p> <a href="https://youtu.be/MAFTLxvyIPQ"><image src="https://raw.githubusercontent.com/leoafarias/optr/master/video.png" width="300px"/></a></p>
+<p> <a href="https://youtu.be/MAFTLxvyIPQ"><image src="https://i3.ytimg.com/vi/MAFTLxvyIPQ/hqdefault.jpg" width="300px"/></a></p>
 
 ## Motivation
 
@@ -18,10 +18,16 @@ Bring over the following components from Optr.
 
 - [x] Typing Effect
 - [ ] Decoding Effect
+- [ ] Theme Provider
+- [ ] Sounds Provider
+- [ ] CutEdges Decoration
 - [ ] Frame
 - [ ] Button
-- [ ] Instruction
-- [ ] SoundEffects
+- [ ] Dialog
+- [ ] Background
+- [ ] Puffs Animation
+- [ ] Loading Animation
+- [ ] Instructions
 
 ## Getting Started
 
