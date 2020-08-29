@@ -19,7 +19,7 @@ Bring over the following components from Optr.
 - [x] Typing Effect
 - [ ] Decoding Effect
 - [ ] Theme Provider
-- [ ] Sounds Provider
+- [x] Sound Provider
 - [ ] CutEdges Decoration
 - [ ] Frame
 - [ ] Button
