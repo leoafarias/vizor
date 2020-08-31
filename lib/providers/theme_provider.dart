@@ -76,6 +76,7 @@ class VizorThemeData {
     this.animationCurve,
     this.animationDuration,
     this.frameTheme,
+    this.buttonTheme,
   });
 
   factory VizorThemeData.fallback() {
@@ -83,18 +84,20 @@ class VizorThemeData {
       animationCurve: Curves.fastOutSlowIn,
       animationDuration: const Duration(milliseconds: 800),
       frameTheme: const VizorFrameTheme(),
+      buttonTheme: const VizorButtonTheme(),
     );
   }
 
   final Curve animationCurve;
   final Duration animationDuration;
   final VizorFrameTheme frameTheme;
+  final VizorButtonTheme buttonTheme;
 }
 
 @immutable
 class VizorFrameTheme {
   const VizorFrameTheme({
-    this.color,
+    this.color = Colors.black54,
     this.lineColor = Colors.tealAccent,
     this.lineStroke = 1.0,
     this.cornerStroke = 3.0,
@@ -120,4 +123,21 @@ class VizorFrameTheme {
   final List<BoxShadow> boxShadow;
   final BlendMode backgroundBlendMode;
   final DecorationPosition position;
+}
+
+@immutable
+class VizorButtonTheme {
+  const VizorButtonTheme({
+    this.color = Colors.tealAccent,
+    this.borderColor = Colors.tealAccent,
+    this.textColor = Colors.tealAccent,
+    this.backgroundColor = Colors.black87,
+    this.padding = const EdgeInsets.all(15.0),
+  });
+
+  final Color color;
+  final Color borderColor;
+  final Color textColor;
+  final Color backgroundColor;
+  final EdgeInsets padding;
 }

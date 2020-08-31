@@ -52,17 +52,16 @@ class _SoundProviderState extends State<SoundProvider> {
     super.initState();
 
     _pool ??= Soundpool(streamType: widget.streamType);
-    _sounds ??= SoundEffects(
-      pool: _pool,
-      ask: Sound(pool: _pool, id: _load('ask')),
-      click: Sound(pool: _pool, id: _load('click')),
-      error: Sound(pool: _pool, id: _load('error')),
-      deploy: Sound(pool: _pool, id: _load('deploy')),
-      typing: Sound(pool: _pool, id: _load('typing')),
-      warning: Sound(pool: _pool, id: _load('warning')),
-      typingLong: Sound(pool: _pool, id: _load('typing_long')),
-      information: Sound(pool: _pool, id: _load('information')),
-    );
+    _sounds ??= SoundEffects({
+      SoundEffect.ask: Sound(pool: _pool, id: _load('ask')),
+      SoundEffect.click: Sound(pool: _pool, id: _load('click')),
+      SoundEffect.error: Sound(pool: _pool, id: _load('error')),
+      SoundEffect.deploy: Sound(pool: _pool, id: _load('deploy')),
+      SoundEffect.typing: Sound(pool: _pool, id: _load('typing')),
+      SoundEffect.warning: Sound(pool: _pool, id: _load('warning')),
+      SoundEffect.typingLong: Sound(pool: _pool, id: _load('typing_long')),
+      SoundEffect.information: Sound(pool: _pool, id: _load('information')),
+    });
   }
 
   @override
@@ -103,28 +102,32 @@ class _SoundProviderInherited extends InheritedWidget {
   bool updateShouldNotify(_SoundProviderInherited oldWidget) => false;
 }
 
-class SoundEffects {
-  const SoundEffects({
-    @required this.pool,
-    @required this.ask,
-    @required this.click,
-    @required this.error,
-    @required this.deploy,
-    @required this.typing,
-    @required this.warning,
-    @required this.typingLong,
-    @required this.information,
-  });
+enum SoundEffect {
+  ask,
+  click,
+  error,
+  deploy,
+  typing,
+  warning,
+  typingLong,
+  information,
+}
 
-  final Soundpool pool;
-  final Sound ask;
-  final Sound click;
-  final Sound error;
-  final Sound deploy;
-  final Sound typing;
-  final Sound warning;
-  final Sound typingLong;
-  final Sound information;
+class SoundEffects {
+  const SoundEffects(Map<SoundEffect, Sound> sounds) : _sounds = sounds;
+
+  final Map<SoundEffect, Sound> _sounds;
+
+  Sound get ask => _sounds[SoundEffect.ask];
+  Sound get click => _sounds[SoundEffect.click];
+  Sound get error => _sounds[SoundEffect.error];
+  Sound get deploy => _sounds[SoundEffect.deploy];
+  Sound get typing => _sounds[SoundEffect.typing];
+  Sound get warning => _sounds[SoundEffect.warning];
+  Sound get typingLong => _sounds[SoundEffect.typingLong];
+  Sound get information => _sounds[SoundEffect.information];
+
+  Sound get(SoundEffect sound) => _sounds[sound];
 }
 
 class Sound {
