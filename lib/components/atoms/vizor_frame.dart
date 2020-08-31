@@ -36,14 +36,13 @@ class VizorFrame extends StatefulWidget {
   _VizorFrameState createState() => _VizorFrameState();
 }
 
-class _VizorFrameState extends State<VizorFrame>
-    with SingleTickerProviderStateMixin {
+class _VizorFrameState extends State<VizorFrame> with TickerProviderStateMixin {
   Animation<double> _animation;
   AnimationController _controller;
 
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
 
     final vtheme = VizorTheme.of(context);
 

@@ -73,19 +73,14 @@ class _InheritedVizorTheme extends InheritedTheme {
 @immutable
 class VizorThemeData {
   const VizorThemeData({
-    this.animationCurve,
-    this.animationDuration,
-    this.frameTheme,
-    this.buttonTheme,
+    this.animationCurve = Curves.fastOutSlowIn,
+    this.animationDuration = const Duration(milliseconds: 800),
+    this.frameTheme = const VizorFrameTheme(),
+    this.buttonTheme = const VizorButtonTheme(),
   });
 
   factory VizorThemeData.fallback() {
-    return VizorThemeData(
-      animationCurve: Curves.fastOutSlowIn,
-      animationDuration: const Duration(milliseconds: 800),
-      frameTheme: const VizorFrameTheme(),
-      buttonTheme: const VizorButtonTheme(),
-    );
+    return VizorThemeData();
   }
 
   final Curve animationCurve;
