@@ -1,7 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:vizor/components/atoms/text_decoding/text_decoding_controller.dart';
-import 'package:vizor/components/atoms/text_typing/text_typing_controller.dart';
 
 class TextDecoding extends StatefulWidget {
   final String data;
@@ -12,11 +11,13 @@ class TextDecoding extends StatefulWidget {
   final int maxLines;
   final TextWidthBasis textWidthBasis;
   final TextHeightBehavior textHeightBehavior;
-  final TextTypingController controller;
+  final TextDecodingController controller;
   final Duration effectDuration;
+  final bool shouldDecode;
 
   const TextDecoding(
     this.data, {
+    this.shouldDecode = true,
     Key key,
     this.style,
     this.textAlign,
@@ -34,7 +35,7 @@ class TextDecoding extends StatefulWidget {
 }
 
 class _TextDecodingState extends State<TextDecoding> {
-  TextTypingController _controller;
+  TextDecodingController _controller;
   String _data = '';
 
   void _effectCallback(String data) {
@@ -45,22 +46,25 @@ class _TextDecodingState extends State<TextDecoding> {
 
   @override
   void initState() {
-    setState(() {
-      _controller = widget.controller ??
-          TextDecodingController(
-            _effectCallback,
-          );
-    });
     super.initState();
-    _controller.setData(widget.data);
+    setState(() {
+      _controller =
+          widget.controller ?? TextDecodingController(_effectCallback);
+    });
+    if (widget.shouldDecode) {
+      _controller.setData(widget.data);
+    } else {
+      setState(() {
+        _data = widget.data;
+      });
+    }
   }
 
   @override
   void didUpdateWidget(TextDecoding oldWidget) {
-    if (oldWidget.data != widget.data) {
+    if (oldWidget.data != widget.data || widget.shouldDecode == true) {
       _controller.setData(
         widget.data,
-        removeFirst: true,
       );
     }
     super.didUpdateWidget(oldWidget);

@@ -28,7 +28,7 @@ class TextDecodingController {
   final Function(String) _fn;
 
   /// Current text dislpayed
-  String _data;
+  String _data = '';
 
   /// Animation frame
   int _frame;
@@ -40,20 +40,17 @@ class TextDecodingController {
   /// Should cancel process
   bool _cancel = false;
 
-  /// Total animation duration;
-  Duration _duration;
-
   final List<Character> _queue = <Character>[];
 
   /// Constructor
   TextDecodingController(Function(String) fn, {Duration duration})
       : _fn = fn,
-        _duration = duration ?? const Duration(milliseconds: 500);
+        _delay = duration ?? const Duration(milliseconds: 1);
 
   /// Sets initial text
-  void setText(String newText) {
+  void setData(String newText) {
     _frame = 0;
-    var length = max(_data.length, newText.length);
+    final length = max(_data.length, newText.length);
     final oldText = _data.padRight(length);
     newText = newText.padRight(length);
 
