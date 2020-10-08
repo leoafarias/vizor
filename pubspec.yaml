@@ -1,6 +1,8 @@
 name: vizor
 description: A new Flutter package project.
 version: 0.0.1
+author: vizor-ui
+homepage: https://github.com/vizor-ui/vizor
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

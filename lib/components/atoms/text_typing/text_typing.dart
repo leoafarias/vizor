@@ -1,8 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:vizor/components/atoms/typing_text/typing_effect_controller.dart';
+import 'package:vizor/components/atoms/text_typing/text_typing_controller.dart';
 
-class TypingText extends StatefulWidget {
+class TextTyping extends StatefulWidget {
   final String data;
   final TextStyle style;
   final bool softWrap;
@@ -11,10 +11,10 @@ class TypingText extends StatefulWidget {
   final int maxLines;
   final TextWidthBasis textWidthBasis;
   final TextHeightBehavior textHeightBehavior;
-  final TypingEffectController controller;
+  final TextTypingController controller;
   final Duration effectDuration;
 
-  const TypingText(
+  const TextTyping(
     this.data, {
     Key key,
     this.style,
@@ -29,11 +29,11 @@ class TypingText extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _TypingTextState createState() => _TypingTextState();
+  _TextTypingState createState() => _TextTypingState();
 }
 
-class _TypingTextState extends State<TypingText> {
-  TypingEffectController _controller;
+class _TextTypingState extends State<TextTyping> {
+  TextTypingController _controller;
   String _data = '';
 
   void _effectCallback(String data) {
@@ -46,7 +46,7 @@ class _TypingTextState extends State<TypingText> {
   void initState() {
     setState(() {
       _controller = widget.controller ??
-          TypingEffectController(
+          TextTypingController(
             _effectCallback,
             duration: widget.effectDuration,
           );
@@ -56,7 +56,7 @@ class _TypingTextState extends State<TypingText> {
   }
 
   @override
-  void didUpdateWidget(TypingText oldWidget) {
+  void didUpdateWidget(TextTyping oldWidget) {
     if (oldWidget.data != widget.data) {
       _controller.setData(
         widget.data,

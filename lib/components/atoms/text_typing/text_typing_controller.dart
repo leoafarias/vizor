@@ -11,7 +11,7 @@ String _removeLastChar(String str) {
 }
 
 /// Typing effect
-class TypingEffectController {
+class TextTypingController {
   /// Callback function for update
   final Function(String) _fn;
 
@@ -29,22 +29,20 @@ class TypingEffectController {
   final Duration _duration;
 
   /// Constructor
-  TypingEffectController(Function(String) fn, {Duration duration})
+  TextTypingController(Function(String) fn, {Duration duration})
       : _fn = fn,
         _duration = duration ?? const Duration(milliseconds: 500);
 
   // Create delay based on text length
   Duration _calculateDelay(String text) {
     final steps = text.length * 2;
-    // Conver to int
+    // Convert to int
     final delayInMicroSeconds = _duration.inMicroseconds ~/ steps;
     return Duration(microseconds: delayInMicroSeconds);
   }
 
   void dispose() {
     _cancel = true;
-    _data = null;
-    _delay = null;
   }
 
   /// Sets initial text
